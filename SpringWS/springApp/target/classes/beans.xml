@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+   
+    <bean id="teacher1" class="com.cg.trg.Spring.beans.Teacher">
+		
+		<property name="teacherId" value="100"></property>
+		<property name="name" value="Sunita"></property>
+		<property name="salary" value="35000"></property>
+			
+	</bean>
+	
+    <bean id="teacher2" class="com.cg.trg.Spring.beans.Teacher">
+		
+		<property name="teacherId" value="200"></property>
+		<property name="name" value="Swatilekha"></property>
+		<property name="salary" value="90000"></property>
+			
+	</bean>
+    <bean id="std1" class="com.cg.trg.Spring.beans.Student">
+		
+		<property name="studentId" value="10"></property>
+		<property name="name" value="Ashok"></property>
+		<property name="marks" value="89.7"></property>
+		<property name="teacher" ref="teacher1"></property>
+	</bean>
+    <bean id="std2" class="com.cg.trg.Spring.beans.Student">
+		
+		<property name="studentId" value="20"></property>
+		<property name="name" value="Padma"></property>
+		<property name="marks" value="90.4"></property>
+		<property name="teacher" ref="teacher2"></property>
+		
+	</bean>
+	
+	 <bean id="std3" class="com.cg.trg.Spring.beans.Student">
+		
+		<constructor-arg value="30"></constructor-arg>
+		<constructor-arg value="Student3"></constructor-arg>
+		<constructor-arg ref="teacher2"></constructor-arg>
+		<constructor-arg value="56.8"></constructor-arg>
+	</bean>
+   
+	
+    <bean id="prd1" class="com.cg.trg.Spring.beans.Product" autowire="byType" scope="singleton" lazy-init="true"  init-method="create" destroy-method="destroy" >		
+		<property name="productId" value="40"></property>
+		<property name="name" value="Flat Screen TV"></property>
+		<property name="price" value="47000"></property>
+		
+	</bean>
+	
+    <bean id="prd2" class="com.cg.trg.Spring.beans.Product" autowire="byType" scope="singleton" lazy-init="true"   init-method="create" destroy-method="destroy" >		
+		<property name="productId" value="20"></property>
+		<property name="name" value="Flat Screen TV"></property>
+		<property name="price" value="47000"></property>
+		
+	</bean>
+	
+	
+</beans>
